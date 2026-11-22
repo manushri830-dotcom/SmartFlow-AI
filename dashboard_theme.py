@@ -20,12 +20,44 @@ APP_CSS = """
   background: #0B1220;
   color: #F8FAFC;
 }
-[data-testid="stSidebar"] {
+section[data-testid="stSidebar"] {
   background: #172338;
   border-right: 1px solid #334155;
+  width: 21rem;
+  min-width: 21rem;
+  max-width: 21rem;
+  overflow-y: auto;
+  z-index: 100;
 }
-[data-testid="stSidebar"] * {
+section[data-testid="stSidebar"] * {
   color: #F8FAFC;
+}
+[data-testid="stToolbar"] { pointer-events: none !important; }
+[data-testid="stToolbar"] button { pointer-events: auto !important; }
+[data-testid="stStatusWidget"] { pointer-events: none !important; }
+section[data-testid="stSidebar"] button[aria-label="Collapse sidebar"] {
+  position: relative !important;
+  z-index: 1000002 !important;
+  pointer-events: auto !important;
+}
+[data-testid="stSidebarCollapsedControl"] {
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 999999 !important;
+  pointer-events: auto !important;
+}
+[data-testid="collapsedControl"] {
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 999999 !important;
+  pointer-events: auto !important;
+}
+@media (max-width: 768px) {
+  section[data-testid="stSidebar"] {
+    width: min(21rem, 86vw);
+    min-width: min(21rem, 86vw);
+    max-width: min(21rem, 86vw);
+  }
 }
 [data-testid="stMetric"] {
   background: #172338;
