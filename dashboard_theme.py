@@ -23,21 +23,32 @@ APP_CSS = """
 section[data-testid="stSidebar"] {
   background: #172338;
   border-right: 1px solid #334155;
-  width: 21rem;
-  min-width: 21rem;
-  max-width: 21rem;
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+  flex: 0 0 280px;
   overflow-y: auto;
   z-index: 100;
 }
 section[data-testid="stSidebar"] * {
   color: #F8FAFC;
 }
-[data-testid="stToolbar"] { pointer-events: none !important; }
-[data-testid="stToolbar"] button { pointer-events: auto !important; }
-[data-testid="stStatusWidget"] { pointer-events: none !important; }
-section[data-testid="stSidebar"] button[aria-label="Collapse sidebar"] {
-  position: relative !important;
+section[data-testid="stSidebar"] button[aria-label="Collapse sidebar"],
+button[aria-label="Collapse sidebar"] {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   z-index: 1000002 !important;
+  pointer-events: auto !important;
+}
+button[aria-label="Expand sidebar"] {
+  position: fixed !important;
+  left: 8px !important;
+  top: 52px !important;
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1000003 !important;
   pointer-events: auto !important;
 }
 [data-testid="stSidebarCollapsedControl"] {
@@ -54,9 +65,9 @@ section[data-testid="stSidebar"] button[aria-label="Collapse sidebar"] {
 }
 @media (max-width: 768px) {
   section[data-testid="stSidebar"] {
-    width: min(21rem, 86vw);
-    min-width: min(21rem, 86vw);
-    max-width: min(21rem, 86vw);
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
   }
 }
 [data-testid="stMetric"] {

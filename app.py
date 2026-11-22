@@ -63,9 +63,7 @@ st.markdown("""
 }
 html, body, [data-testid="stAppViewContainer"] { background: var(--bg) !important; }
 [data-testid="stHeader"] { background: rgba(8,13,25,.82) !important; backdrop-filter: blur(12px); z-index: 50 !important; }
-[data-testid="stToolbar"] { z-index: 60 !important; pointer-events: none !important; }
-[data-testid="stToolbar"] button { pointer-events: auto !important; }
-[data-testid="stStatusWidget"] { pointer-events: none !important; }
+[data-testid="stToolbar"] { z-index: 60 !important; }
 [data-testid="stAppViewContainer"] > .main { background:
   radial-gradient(circle at 82% 8%, rgba(0,212,255,.055), transparent 22%),
   linear-gradient(180deg, #080D19 0%, #090F1D 100%) !important; }
@@ -73,9 +71,10 @@ section[data-testid="stSidebar"] {
   background: var(--sidebar) !important;
   border-right: 1px solid rgba(148,163,184,.10) !important;
   padding: 1.05rem 0.8rem 1.2rem !important;
-  width: 21rem !important;
-  min-width: 21rem !important;
-  max-width: 21rem !important;
+  width: 280px !important;
+  min-width: 280px !important;
+  max-width: 280px !important;
+  flex: 0 0 280px !important;
   z-index: 100 !important;
 }
 [data-testid="stSidebarCollapsedControl"] {
@@ -85,9 +84,22 @@ section[data-testid="stSidebar"] {
   z-index: 999999 !important;
   pointer-events: auto !important;
 }
-section[data-testid="stSidebar"] button[aria-label="Collapse sidebar"] {
-  position: relative !important;
+section[data-testid="stSidebar"] button[aria-label="Collapse sidebar"],
+button[aria-label="Collapse sidebar"] {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   z-index: 1000002 !important;
+  pointer-events: auto !important;
+}
+button[aria-label="Expand sidebar"] {
+  position: fixed !important;
+  left: 8px !important;
+  top: 52px !important;
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1000003 !important;
   pointer-events: auto !important;
 }
 [data-testid="collapsedControl"] {
@@ -99,9 +111,9 @@ section[data-testid="stSidebar"] button[aria-label="Collapse sidebar"] {
 }
 @media (max-width: 768px) {
   section[data-testid="stSidebar"] {
-    width: min(21rem, 86vw) !important;
-    min-width: min(21rem, 86vw) !important;
-    max-width: min(21rem, 86vw) !important;
+    width: min(280px, 86vw) !important;
+    min-width: min(280px, 86vw) !important;
+    max-width: min(280px, 86vw) !important;
   }
 }
 [data-testid="stSidebar"] [role="radiogroup"] label {
